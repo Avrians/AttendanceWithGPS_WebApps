@@ -31,11 +31,11 @@
 
         <div class="login-form mt-1">
             <div class="section">
-                <img src="{{ asset('assets/img/sample/photo/vector4.png') }}" alt="image" class="form-image">
+                <img src="{{ asset('assets/img/login/login.jpg') }}" width="40px" alt="image" class="form-image">
             </div>
             <div class="section mt-1">
-                <h1>Get started</h1>
-                <h4>Fill the form to log in</h4>
+                <h1>E-Presensi</h1>
+                <h4>Silahkan Login</h4>
             </div>
             <div class="section mt-1 mb-5">
                 <form action="app-pages.html">
@@ -58,9 +58,6 @@
                     </div>
 
                     <div class="form-links mt-2">
-                        <div>
-                            <a href="page-register.html">Register Now</a>
-                        </div>
                         <div><a href="page-forgot-password.html" class="text-muted">Forgot Password?</a></div>
                     </div>
 
