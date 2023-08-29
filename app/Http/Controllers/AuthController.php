@@ -18,4 +18,12 @@ class AuthController extends Controller
             return redirect('/')->with('status', 'Nik atau password salah!');
         }
     }
+
+    public function proseslogout()
+    {
+        if (Auth::guard('karyawan')->check()) {
+            Auth::guard('karyawan')->logout();
+            return redirect('/');
+        }
+    }
 }

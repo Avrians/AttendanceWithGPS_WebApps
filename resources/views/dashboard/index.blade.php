@@ -245,7 +245,7 @@
                                     <ion-icon name="musical-notes-outline" role="img" class="md hydrated"
                                         aria-label="musical notes outline"></ion-icon>
                                 </div>
-                                <div class="in">
+                                <div clas s="in">
                                     <div>Music</div>
                                 </div>
                             </div>
