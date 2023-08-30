@@ -15,7 +15,7 @@ class AuthController extends Controller
             return redirect('/dashboard');
         } else {
             // Jika gagal login
-            return redirect('/')->with('status', 'Nik atau password salah!');
+            return redirect('/')->with('warning', 'Nik atau password salah!');
         }
     }
 

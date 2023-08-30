@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-})->name('login');
+Route::middleware(['guest:karyawan'])->group(function () {
+    Route::get('/', function () {
+        return view('auth.login');
+    })->name('login');
 
-Route::post('/prosesLogin', [AuthController::class, 'prosesLogin']);
+    Route::post('/proseslogin', [AuthController::class, 'prosesLogin']);
+});
 
 Route::middleware(['auth:karyawan'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
