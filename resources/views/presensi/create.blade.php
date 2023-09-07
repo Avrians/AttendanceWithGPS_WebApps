@@ -21,7 +21,14 @@
          height: auto !important;
          border-radius: 15px;
      }
+
+     #map {
+         height: 250px;
+     }
  </style>
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
  @section('content')
      <div class="row" style="margin-top: 70px">
@@ -37,6 +44,11 @@
              <button id="takeabsen" class="btn btn-primary btn-block mt-1">
                  <ion-icon name="camera-outline"></ion-icon>
                  Absen Masuk</button>
+         </div>
+     </div>
+     <div class="row mt-2">
+         <div class="col">
+             <div id="map"></div>
          </div>
      </div>
  @endsection
@@ -59,6 +71,18 @@
 
          function successCallback(position) {
              lokasi.value = position.coords.latitude + "," + position.coords.longitude;
+             var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 18);
+             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                 maxZoom: 20,
+                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+             }).addTo(map);
+             var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+             var circle = L.circle([position.coords.latitude, position.coords.longitude], {
+                 color: 'red',
+                 fillColor: '#f03',
+                 fillOpacity: 0.5,
+                 radius: 50
+             }).addTo(map);
          }
 
          function errorCallback(position) {
